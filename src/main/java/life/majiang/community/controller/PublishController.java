@@ -24,7 +24,7 @@ public class PublishController {
     private UserMapper userMapper;
 
     @GetMapping("/publish")
-    public String publish(){
+    public String publish() {
         return "publish";
     }
 
@@ -33,22 +33,39 @@ public class PublishController {
                             @RequestParam("description") String description,
                             @RequestParam("tag") String tag,
                             Model model,
-                            HttpServletRequest request){
+                            HttpServletRequest request) {
+        // what is model used for??????
+        model.addAttribute("title", title);
+        model.addAttribute("description", description);
+        model.addAttribute("tag", tag);
+
+        if (title == null || title == "") {
+            model.addAttribute("error", "Title could not be empty");
+            return "publish";
+        }
+        if (description == null || description == "") {
+            model.addAttribute("error", "Question body could not be empty");
+            return "publish";
+        }
+        if (tag == null || tag == "") {
+            model.addAttribute("error", "tag could not be empty");
+            return "publish";
+        }
 
         User user = null;
         Cookie[] cookies = request.getCookies();
-        for(Cookie cookie:cookies){
-            if(cookie.getName().equals("token")){
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("token")) {
                 String token = cookie.getValue();
                 user = userMapper.findByToken(token);
-                if(user!=null){
+                if (user != null) {
                     request.getSession().setAttribute("user", user);
                 }
                 break;
             }
         }
 
-        if(user == null){
+        if (user == null) {
             model.addAttribute("error", "用户未登录");
             return "publish";
         }
