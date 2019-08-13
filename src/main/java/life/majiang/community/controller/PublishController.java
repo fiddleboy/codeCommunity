@@ -28,13 +28,13 @@ public class PublishController {
         return "publish";
     }
 
-    @PostMapping
-    public String doPublish(@RequestParam("title") String title,
-                            @RequestParam("description") String description,
-                            @RequestParam("tag") String tag,
+    @PostMapping("/publish")
+    public String doPublish(@RequestParam(value = "title", required = false) String title,  //这些param 从前端的接口处读取的信息。
+                            @RequestParam(value = "description", required = false) String description,
+                            @RequestParam(value = "tag", required = false) String tag,
                             Model model,
                             HttpServletRequest request) {
-        // what is model used for??????
+        // what is model used for?????? 用于回显到页面
         model.addAttribute("title", title);
         model.addAttribute("description", description);
         model.addAttribute("tag", tag);
