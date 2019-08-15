@@ -1,10 +1,12 @@
-package life.majiang.community.model;
+package life.majiang.community.dto;
 
+import life.majiang.community.model.User;
 import lombok.Data;
 
 @Data
-public class Question {
+public class QuestionDTO {
 
+    private User user;
     private Integer id;
     private String title;
     private String description;
