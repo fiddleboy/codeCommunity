@@ -26,7 +26,9 @@ public class SessionInterceptor implements HandlerInterceptor {
                     String token = cookie.getValue();
                     User user = userMapper.findByToken(token);
                     if (user != null) {
-                        // the following line allows us to access session.user in html file (frontend)!
+                        // the following line create a 'session' and set the attribute,
+                        // this allows us to access session.user in html file (frontend)!
+                        // this user comes from our database, by line 27 of this file.
                         request.getSession().setAttribute("user", user);
                     }
                     break;
