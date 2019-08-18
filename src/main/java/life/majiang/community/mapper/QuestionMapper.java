@@ -29,4 +29,7 @@ public interface QuestionMapper {
 
     @Select("select * from question where id=#{id}")
     Question getById(@Param(value = "id") Integer id);
+
+    @Select("update question set title = #{title}, description = #{description}, tag = #{tag} where id = #{id}")
+    void update(Question question);
 }

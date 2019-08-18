@@ -94,13 +94,26 @@ public class QuestionService {
     }
 
     /* Return a question by its unique id.
-    */
+     */
     public QuestionDTO getById(Integer id) {
         Question question = questionMapper.getById(id);
         QuestionDTO questionDTO = new QuestionDTO();
-        BeanUtils.copyProperties(question,questionDTO);
+        BeanUtils.copyProperties(question, questionDTO);
         User user = userMapper.findById(question.getCreator());
         questionDTO.setUser(user);
         return questionDTO;
+    }
+
+    public void createOrUpdate(Question question) {
+        if (question.getId() == null) {
+            //this is a new post.
+            question.setGmtCreate(System.currentTimeMillis());
+            question.setGmtModified(question.getGmtCreate());
+            questionMapper.create(question);
+        } else {
+            // this is an update.
+            question.setGmtModified(System.currentTimeMillis());
+            questionMapper.update(question);
+        }
     }
 }
