@@ -18,12 +18,10 @@
 <!--    <script src="../static/js/jquery-3.4.1.min.js"></script>-->
 </head>
 <body>
-<div th:insert="~{navigation :: nav}"></div>
-<div class="container-fluid main">
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        </div>
-    </div>
+<div class="jumbotron">
+    <h1>Error!</h1>
+    <p th:text="${message}">Server is too weak. Maybe try again later~</p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Back to index page</a></p>
 </div>
 </body>
 </html>

@@ -15,7 +15,7 @@ public class UserService {
 
     public void createOrUpdate(User user) {
         UserExample userExample = new UserExample();
-        userExample.createCriteria().andTokenEqualTo(user.getAccount());
+        userExample.createCriteria().andAccountEqualTo(user.getAccount());
         List<User> users = userMapper.selectByExample(userExample);
         if (users.size() == 0) {
             // insert new user
