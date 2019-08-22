@@ -22,7 +22,7 @@ public class PublishController {
     private QuestionService questionService;
 
     @GetMapping("/publish/{id}")
-    public String edit(@PathVariable(value = "id") Integer id,
+    public String edit(@PathVariable(value = "id") Long id,
                        Model model) {
         QuestionDTO question = questionService.getById(id);
         model.addAttribute("title", question.getTitle());
@@ -41,7 +41,7 @@ public class PublishController {
     public String doPublish(@RequestParam(value = "title", required = false) String title,  //这些param 从前端的接口处读取的信息。
                             @RequestParam(value = "description", required = false) String description,
                             @RequestParam(value = "tag", required = false) String tag,
-                            @RequestParam(value = "id", required = false) Integer id,
+                            @RequestParam(value = "id", required = false) Long id,
                             Model model,
                             HttpServletRequest request) {
         // what is model used for?????? 用于回显到页面
