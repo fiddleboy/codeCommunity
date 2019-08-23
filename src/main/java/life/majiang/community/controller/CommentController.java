@@ -27,8 +27,8 @@ public class CommentController {
 
     @ResponseBody   //将java object转化成json发送到前端
     @RequestMapping(value = "/comment", method = RequestMethod.POST)
-    public Object post(@RequestBody CommentDTO commentDTO,
-                       HttpServletRequest request) { //将从前端得来的json转化成java object
+    public Object post(@RequestBody CommentDTO commentDTO,  // @RequestBody 将从前端得来的json转化成java object
+                       HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
             return ResultDTO.errorOf(CustomizeErrorCode.NO_LOGIN);
