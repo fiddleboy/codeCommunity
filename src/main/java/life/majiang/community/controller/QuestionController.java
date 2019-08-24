@@ -1,6 +1,5 @@
 package life.majiang.community.controller;
 
-import life.majiang.community.dto.CommentCreateDTO;
 import life.majiang.community.dto.CommentDTO;
 import life.majiang.community.dto.QuestionDTO;
 import life.majiang.community.service.CommentService;

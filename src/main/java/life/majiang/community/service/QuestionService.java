@@ -126,6 +126,7 @@ public class QuestionService {
             //this is a new post.
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(question.getGmtCreate());
+            question.setCommentCount(0);
             questionMapper.insert(question);
         } else {
             // this is an update.
