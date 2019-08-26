@@ -15,6 +15,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+    <script src="../static/js/community.js" type="application/javascript"></script>
 
 </head>
 <body>
@@ -29,6 +30,7 @@
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input th:type="text" class="form-control" id="title" th:value="${title}" name="title"
+                           autocomplete="off"
                            placeholder="Title...">
                 </div>
                 <div class="form-group">
@@ -39,7 +41,30 @@
                 <div class="form-group">
                     <label for="tag">Add tags:</label>
                     <input type="text" class="form-control" id="tag" name="tag" th:value="${tag}"
-                           placeholder="enter tags... using comma to seperate">
+                           autocomplete="off"
+                           placeholder="enter tags... using comma to seperate"
+                           onclick="showSelectTag()">
+                    <div id="select-tag" class="publish-tag-tab">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab"
+                                                                      data-toggle="tab">language</a></li>
+                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab"
+                                                       data-toggle="tab">framework</a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div role="tabpanel" class="tab-pane active" id="home">
+                                    <span class="label label-info"><span class="glyphicon glyphicon-tags"
+                                                                         onclick="selectTag('Java')">Java</span></span>
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="profile">
+                                    <span class="label label-info"><span class="glyphicon glyphicon-tags"
+                                                                         onclick="selectTag('Spring')">Spring</span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="container-fluid main">
                     <div class="row">

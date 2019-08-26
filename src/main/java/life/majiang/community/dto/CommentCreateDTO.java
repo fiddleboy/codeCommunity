@@ -2,6 +2,7 @@ package life.majiang.community.dto;
 
 import lombok.Data;
 
+
 @Data
 public class CommentCreateDTO {
     private long parentId;
