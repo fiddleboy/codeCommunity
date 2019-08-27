@@ -6,6 +6,7 @@ import life.majiang.community.mapper.QuestionMapper;
 import life.majiang.community.model.Question;
 import life.majiang.community.model.User;
 import life.majiang.community.service.QuestionService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -63,6 +64,12 @@ public class PublishController {
         }
         if (tag == null || tag == "") {
             model.addAttribute("error", "tag could not be empty");
+            return "publish";
+        }
+
+        String invalid = TagCache.filterInvalid(tag);
+        if(StringUtils.isNotBlank(invalid)){
+            model.addAttribute("error", "illegal tag usage found "+invalid);
             return "publish";
         }
 

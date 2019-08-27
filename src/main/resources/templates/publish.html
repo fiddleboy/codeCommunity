@@ -57,9 +57,11 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane" th:id="${selectCategory.categoryName}"
                                  th:each="selectCategory:${tags}">
-                                    <span class="label label-info" th:each="selectTag:${selectCategory.tags}">
-                                        <span class="glyphicon glyphicon-tags"
+                                    <span>
+                                        <span class="label label-info" th:each="selectTag:${selectCategory.tags}">
+                                            <span class="glyphicon glyphicon-tags"
                                               onclick="selectTag(this)" th:data-tag="${selectTag}" th:text="${selectTag}"></span>
+                                        </span>
                                     </span>
                             </div>
                         </div>
