@@ -7,7 +7,9 @@ public enum CustomizeErrorCode implements ICustomizeErrorCode {
     SYS_ERROR(2004, "Server got fire, maybe try again later?"),
     TYPE_PARAM_WRONG(2005, "Comment type is wrong or not exist."),
     COMMENT_NOT_FOUND(2006, "The comment you are looking for cannot be found!"),
-    CONTENT_IS_EMPTY(2007, "Comment body could not be empty!")
+    CONTENT_IS_EMPTY(2007, "Comment body could not be empty!"),
+    READ_NOTIFICATION_FAIL(2008, "You are reading other's msg!"),
+    NOTIFICATION_NOT_FOUND(2009, "Msg disappeared???")
     ;
 
     private String message;
