@@ -9,7 +9,8 @@ public enum CustomizeErrorCode implements ICustomizeErrorCode {
     COMMENT_NOT_FOUND(2006, "The comment you are looking for cannot be found!"),
     CONTENT_IS_EMPTY(2007, "Comment body could not be empty!"),
     READ_NOTIFICATION_FAIL(2008, "You are reading other's msg!"),
-    NOTIFICATION_NOT_FOUND(2009, "Msg disappeared???")
+    NOTIFICATION_NOT_FOUND(2009, "Msg disappeared???"),
+    FILE_UPLOAD_FAIL(2010, "Image uploading failed!")
     ;
 
     private String message;
