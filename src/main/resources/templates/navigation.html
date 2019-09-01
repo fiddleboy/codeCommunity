@@ -38,8 +38,11 @@
                             <li><a href="/logout">LogOut</a></li>
                         </ul>
                     </li>
-                    <li th:if="${session.user == null}"><a href="https://github.com/login/oauth/authorize?client_id=ee2e00ceec4ef59bb86b
-&redirect_uri=http://localhost:8887/callback&scope=user&state=1">LogIn</a></li>
+                    <li th:if="${session.user == null}">
+<!--                        <a href="https://github.com/login/oauth/authorize?client_id=ee2e00ceec4ef59bb86b-->
+<!--&redirect_uri=http://localhost:8887/callback&scope=user&state=1">LogIn</a>-->
+                        <a th:href="@{https://github.com/login/oauth/authorize(client_id='ee2e00ceec4ef59bb86b', redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')}, scope ='user', state=1)}">LogIn</a>
+                    </li>
                 </ul>
             </div>
         </div>
