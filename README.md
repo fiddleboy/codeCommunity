@@ -1,3 +1,4 @@
+This site is currently under development. I will turn on the server very soon.
 
 ```bash
 mvn flyway:baseline
